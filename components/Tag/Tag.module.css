@@ -26,24 +26,27 @@
 
 .red {
   color: var(--white);
-  background-color: #de0000;
+  background-color: #DE0000;
 
   font-weight: 600;
 }
+
 .grey {
   color: var(--white);
-  background: #b3c0d9;
+  background: #B3C0D9;
 
   font-weight: 600;
 }
+
 .green {
   color: var(--green);
   background: var(--green-light);
 
   font-weight: 600;
 }
+
 .primary {
   color: var(--primary);
-  background: none;
   border: 1px solid var(--primary);
+  background: none;
 }
