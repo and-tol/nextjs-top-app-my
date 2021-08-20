@@ -17,9 +17,8 @@
   color: var(--gray-light);
 }
 
-@media (max-width){
-  .footer{
+@media (max-width) {
+  .footer {
     grid-template-columns: 1fr;
-
   }
 }
