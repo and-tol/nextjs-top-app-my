@@ -50,7 +50,6 @@ export const Rating = ({
     constractRating(i);
   };
   const onclick = (i: number) => {
-    console.log('click', i);
     if (!isEditable || !setRating) {
       return;
     }

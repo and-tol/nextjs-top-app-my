@@ -1,56 +1,40 @@
 import { GetStaticProps } from 'next';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, H, P, Rating, Tag } from '../components';
-import { Layout, withLayout } from '../layout/Layout';
+import { withLayout } from '../layout/Layout';
 import axios from 'axios';
 import { MenuItem } from '../interfaces/menu.interface';
-import { AppContextProvider } from '../context/app.context';
 
-// const firstCategory = 0;
-
-export default function Home({ menu, firstCategory }: HomeProps): JSX.Element {
+function Home({ menu }: HomeProps): JSX.Element {
   const [counter, setCounter] = useState<number>(0);
   const [rating, setRating] = useState<number>(4);
 
-  useEffect(() => {
-    return function cleanup() {
-      console.log('Unmount' + counter);
-    };
-  }, []);
-
   return (
-    <AppContextProvider menu={menu} firstCategory={firstCategory}>
-      <Layout>
-        <H tag='h2'>{counter}</H>
-        <Button
-          appearance='primary'
-          arrow='right'
-          onClick={() => setCounter(x => x + 1)}
-        >
-          Увеличить
-        </Button>
-        <Button appearance='ghost' arrow='right'>
-          Кнопка
-        </Button>
-        <P size='s'>Lorem, ipsum dolor</P>
-        <P>Lorem, ipsum dolor</P>
-        <P size='l'>Lorem, ipsum dolor</P>
-        <Tag color='red' size='m'>
-          Lorem
-        </Tag>
-        <Tag color='green'>Lorem</Tag>
-        <Rating rating={rating} isEditable setRating={setRating} />
-        {/* <ul>
-        {menu.map(m => {
-          return <li key={m._id.secondCategory}>{m._id.secondCategory}</li>;
-        })}
-      </ul> */}
-      </Layout>
-    </AppContextProvider>
+    <>
+      <H tag='h2'>{counter}</H>
+      <Button
+        appearance='primary'
+        arrow='right'
+        onClick={() => setCounter(x => x + 1)}
+      >
+        Увеличить
+      </Button>
+      <Button appearance='ghost' arrow='right'>
+        Кнопка
+      </Button>
+      <P size='s'>Lorem, ipsum dolor</P>
+      <P>Lorem, ipsum dolor</P>
+      <P size='l'>Lorem, ipsum dolor</P>
+      <Tag color='red' size='m'>
+        Lorem
+      </Tag>
+      <Tag color='green'>Lorem</Tag>
+      <Rating rating={rating} isEditable setRating={setRating} />
+    </>
   );
 }
 
-// export default withLayout(Home);
+export default withLayout(Home);
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const firstCategory = 0;
