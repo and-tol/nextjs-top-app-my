@@ -49,6 +49,7 @@ export const Rating = ({
     }
     constractRating(i);
   };
+  
   const onclick = (i: number) => {
     if (!isEditable || !setRating) {
       return;

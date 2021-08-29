@@ -1,0 +1,44 @@
+/* @import '../../components/H/H.module.css'; */
+
+.title {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+
+  align-items: baseline;
+  justify-items: left;
+  gap: 1.25rem;
+}
+
+.HhTitle {
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  align-items: baseline;
+  justify-items: left;
+  gap: 1.25rem;
+}
+
+.seo h1 {
+  margin: 0;
+
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 35px;
+}
+
+.seo h2 {
+  margin-top: 3.125rem;
+  margin-bottom: 1.25rem;
+
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1.875rem;
+}
+
+.seo h3 {
+  margin: 0;
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 27px;
+}

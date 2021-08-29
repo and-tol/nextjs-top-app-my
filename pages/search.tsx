@@ -1,14 +1,18 @@
+import axios from 'axios';
 import { GetStaticProps } from 'next';
 import React from 'react';
-import axios from 'axios';
 import { MenuItem } from '../interfaces/menu.interface';
-import { Layout, withLayout } from '../layout/Layout';
+import { withLayout } from '../layout/Layout';
 
-export default function Search(): JSX.Element {
-  return <></>;
+function Search(): JSX.Element {
+  return (
+    <>
+      <h1>Search</h1>
+    </>
+  );
 }
 
-// export default withLayout(Search);
+export default withLayout(Search);
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const firstCategory = 0;
@@ -27,7 +31,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   };
 };
 
-interface HomeProps {
+interface HomeProps extends Record<string, unknown> {
   menu: MenuItem[];
   firstCategory: number;
 }

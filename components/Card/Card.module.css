@@ -1,0 +1,31 @@
+.p {
+  margin: 0;
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+.small {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.middle {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.large {
+  font-size: 18px;
+  line-height: 29px;
+}
+
+.card {
+  border-radius: 5px;
+  background-color: var(--white);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+}
+
+.blue {
+  background: #F9F8FF;
+}

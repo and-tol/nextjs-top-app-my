@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next';
 import React, { useState } from 'react';
-import { Button, H, P, Rating, Tag } from '../components';
+import { Button, H, Input, P, Rating,  Tag, Textarea } from '../components';
 import { withLayout } from '../layout/Layout';
 import axios from 'axios';
 import { MenuItem } from '../interfaces/menu.interface';
@@ -12,11 +12,7 @@ function Home({ menu }: HomeProps): JSX.Element {
   return (
     <>
       <H tag='h2'>{counter}</H>
-      <Button
-        appearance='primary'
-        arrow='right'
-        onClick={() => setCounter(x => x + 1)}
-      >
+      <Button appearance='primary' arrow='right' onClick={() => setCounter(x => x + 1)}>
         Увеличить
       </Button>
       <Button appearance='ghost' arrow='right'>
@@ -30,6 +26,9 @@ function Home({ menu }: HomeProps): JSX.Element {
       </Tag>
       <Tag color='green'>Lorem</Tag>
       <Rating rating={rating} isEditable setRating={setRating} />
+      <Input placeholder='test' />
+      <Textarea placeholder='test' />
+
     </>
   );
 }
@@ -38,12 +37,9 @@ export default withLayout(Home);
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const firstCategory = 0;
-  const { data: menu } = await axios.post<MenuItem[]>(
-    `${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/find`,
-    {
-      firstCategory,
-    }
-  );
+  const { data: menu } = await axios.post<MenuItem[]>(`${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/find`, {
+    firstCategory,
+  });
 
   return {
     props: {
