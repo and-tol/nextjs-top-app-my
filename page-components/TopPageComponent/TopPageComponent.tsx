@@ -1,11 +1,12 @@
 import React, { useReducer } from 'react';
-import { Advantages, Card, H, HhData, P, Sort, Tag } from '../../components';
+import { Advantages, Card, H, HhData, P, Product, Sort, Tag } from '../../components';
 import { TopPageComponentProps } from './TopPageComponent.props';
 
-import styles from './TopPageComponent.module.css';
 import { TopLevelCategory } from '../../interfaces/page.interface';
 import { SortEnum } from '../../components/Sort/Sort.config';
 import { sortReducer } from './sort.reduser';
+
+import styles from './TopPageComponent.module.css';
 
 export const TopPageComponent = ({ page, products, firstCategory }: TopPageComponentProps): JSX.Element => {
   const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, {
@@ -29,7 +30,7 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
 
         <Sort sort={sort} setSort={setSort} />
       </div>
-      <div>{sortedProducts && sortedProducts.map(p => <div key={p._id}>{p.title}</div>)}</div>
+      {sortedProducts && sortedProducts.map(p => <Product key={p._id} product={p} />)}
       {/* -------- */}
       <div className={styles.HhTitle}>
         <H tag='h2'> Вакансии - {page.category} </H>
