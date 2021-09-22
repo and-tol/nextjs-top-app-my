@@ -21,7 +21,6 @@ export const Button = ({
       {children}
       {arrow !== 'none' &&
         <span className={cn(styles.arrow, { [styles.done]: arrow === 'down' })}>
-          {/* {'>'} */}
           <ArrowIcon />
         </span>
       }

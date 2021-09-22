@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { PTagProps } from './P.config';
+import { PProps } from './P.config';
 import styles from './P.module.css';
 
 export const P = ({
@@ -7,7 +7,7 @@ export const P = ({
   size = 'm',
   className,
   ...props
-}: PTagProps): JSX.Element => {
+}: PProps): JSX.Element => {
   return (
     <p
       className={cn(styles.p, className, {
