@@ -1,5 +1,14 @@
-import React, { useReducer } from 'react';
-import { Advantages, Card, H, HhData, P, Product, Sort, Tag } from '../../components';
+import React, { useEffect, useReducer } from 'react';
+import {
+  Advantages,
+  Card,
+  H,
+  HhData,
+  P,
+  Product,
+  Sort,
+  Tag,
+} from '../../components';
 import { TopPageComponentProps } from './TopPageComponent.props';
 
 import { TopLevelCategory } from '../../interfaces/page.interface';
@@ -8,15 +17,26 @@ import { sortReducer } from './sort.reduser';
 
 import styles from './TopPageComponent.module.css';
 
-export const TopPageComponent = ({ page, products, firstCategory }: TopPageComponentProps): JSX.Element => {
-  const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, {
-    products,
-    sort: SortEnum.Rating,
-  });
+export const TopPageComponent = ({
+  page,
+  products,
+  firstCategory,
+}: TopPageComponentProps): JSX.Element => {
+  const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(
+    sortReducer,
+    {
+      products,
+      sort: SortEnum.Rating,
+    }
+  );
 
-  const setSort = (sort: SortEnum) => {
-    dispatchSort({ type: sort });
+  const setSort = (sortSet: SortEnum) => {
+    dispatchSort({ type: sortSet });
   };
+
+  useEffect(() => {
+    dispatchSort({ type: 'reset', initialState: products });
+  }, [products]);
 
   return (
     <div className={styles.wrapper}>
@@ -30,7 +50,8 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
 
         <Sort sort={sort} setSort={setSort} />
       </div>
-      {sortedProducts && sortedProducts.map(p => <Product key={p._id} product={p} />)}
+      {sortedProducts &&
+        sortedProducts.map(p => <Product key={p._id} product={p} />)}
       {/* -------- */}
       <div className={styles.HhTitle}>
         <H tag='h2'> Вакансии - {page.category} </H>
@@ -39,14 +60,21 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
         </Tag>
       </div>
       {/* -------- */}
-      {firstCategory === TopLevelCategory.Courses && page.hh && <HhData {...page.hh} />}
+      {firstCategory === TopLevelCategory.Courses && page.hh && (
+        <HhData {...page.hh} />
+      )}
       {page.advantages && page.advantages.length > 0 && (
         <>
           <H tag='h2'>Преимущества</H>
           <Advantages advantages={page.advantages} />
         </>
       )}
-      {page.seoText && <div className={styles.seo} dangerouslySetInnerHTML={{ __html: page.seoText }} />}
+      {page.seoText && (
+        <div
+          className={styles.seo}
+          dangerouslySetInnerHTML={{ __html: page.seoText }}
+        />
+      )}
       <H tag='h2'>Получаемые навыки</H>
       {page.tags.map(t => (
         <Tag key={t} color='primary'>

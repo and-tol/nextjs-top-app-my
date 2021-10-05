@@ -7,6 +7,7 @@ import axios from 'axios';
 import { MenuItem } from '../interfaces/menu.interface';
 
 import '../styles/globals.css';
+import { API } from '../helpers/api';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
@@ -29,7 +30,7 @@ export default MyApp;
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const firstCategory = 0;
   const { data: menu } = await axios.post<MenuItem[]>(
-    `${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/find`,
+    API.topPage.find,
     {
       firstCategory,
     }

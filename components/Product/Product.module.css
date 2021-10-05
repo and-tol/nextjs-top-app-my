@@ -21,18 +21,21 @@
 .price,
 .priceTitle {
   grid-column: pricestart / priceend;
+
   white-space: nowrap;
 }
 
 .credit,
 .creditTitle {
   grid-column: creditstart / creditend;
+
   white-space: nowrap;
 }
 
 .rating,
 .rateTitle {
   grid-column: ratestart / end;
+
   white-space: nowrap;
 }
 
@@ -135,34 +138,45 @@
 .characteristics {
   display: grid;
   grid-template-columns: auto 1fr auto;
+
   align-items: baseline;
   gap: 0.625rem;
 
   padding-right: 3.75rem;
+
   font-size: 1rem;
   line-height: 2rem;
 }
+
 .characteristicsName {
   margin-right: 0.625rem;
+
   font-weight: 700;
 }
 
 .characteristicsDots {
-  border-bottom: 1px dashed var(--gray-light);
   margin-bottom: 5px;
+
+  border-bottom: 1px dashed var(--gray-light);
 }
 
-.closed{
+.closed {
   overflow: hidden;
+
   max-height: 0;
   padding: 0;
 }
-.opened{
+
+.opened {
   overflow: visible;
+
   max-height: 100%;
   padding: 1.875rem;
 }
 
+.rateTitle a {
+  color: var(--primary);
+}
 
 /* Adaptive */
 @media (max-width: 1320px) {
@@ -191,6 +205,7 @@
 
   .tags {
     grid-area: tags;
+
     margin-bottom: 1.25rem;
   }
 
@@ -228,6 +243,7 @@
 
   .feature {
     grid-area: feature;
+
     margin-bottom: 1.25rem;
   }
 
@@ -267,6 +283,7 @@
     margin-bottom: 0.625rem;
   }
 }
+
 @media (max-width: 480px) {
   .product {
     grid-template-columns: 1fr;
