@@ -20,10 +20,23 @@
   gap: 40px;
 }
 
-.sort span {
+.sort button {
   display: grid;
   grid-template-columns: 20px 1fr;
   gap: 0.5rem;
 
   align-items: center;
+
+  border: none;
+  background: none;
+
+  font-size: 1rem;
+}
+
+.sort button:not(.active) {
+  grid-template-columns: 1fr;
+}
+
+.sortName {
+  display: none;
 }

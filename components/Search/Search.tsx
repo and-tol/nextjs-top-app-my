@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, KeyboardEvent } from 'react';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
-import { SearchProps } from './Search.config';
+import { SearchProps } from './Search.props';
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
 import SearchIcon from './search.svg';
@@ -21,14 +21,14 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
     });
   };
 
-  const handleKeyDown = (e: KeyboardEvent) => {
+  const handleKeyDown = (e: KeyboardEvent): void => {
     if (e.key == 'Enter') {
       goToSearch();
     }
   };
 
   return (
-    <form className={cn(className, styles.search)} {...props}>
+    <form className={cn(className, styles.search)} {...props} role="search" >
       <Input
         className={styles.input}
         placeholder='Поиск...'
@@ -40,6 +40,7 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
         appearance='primary'
         className={styles.button}
         onClick={goToSearch}
+        aria-label='Искать по сайту'
       >
         <SearchIcon />
       </Button>

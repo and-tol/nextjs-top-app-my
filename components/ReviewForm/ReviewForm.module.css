@@ -53,11 +53,12 @@
   top: 20px;
   right: 20px;
 
-  cursor: pointer;
+  border: none;
+  background: none;
 }
 
 .error .close path {
-  stroke: var(--red );
+  stroke: var(--red);
 }
 
 @media (max-width: 1100px) {

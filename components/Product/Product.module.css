@@ -160,7 +160,7 @@
   border-bottom: 1px dashed var(--gray-light);
 }
 
-.closed {
+/* .closed {
   overflow: hidden;
 
   max-height: 0;
@@ -172,6 +172,12 @@
 
   max-height: 100%;
   padding: 1.875rem;
+} */
+
+.reviews {
+  overflow: hidden;
+
+  padding: 30px;
 }
 
 .rateTitle a {
